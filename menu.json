@@ -1,0 +1,58 @@
+{"menu":[
+    {"id":1,
+        "nombre": "Hamburguesa",
+        "descripcion": "Doble Carne, Queso, Lechuga, Tomate",
+        "precio": 95,
+        "imagen": "img/hamburguesa.jpg"
+    },
+
+    {"id":2,
+        "nombre": "Tacos",
+        "descripcion": "Cebolla, Trompo, Bistek, Cilantro",
+        "precio": 70,
+        "imagen": "img/tacos.jpg"
+    },
+
+    {"id":3,
+        "nombre": "Pizza",
+        "descripcion": "Queso, Mozzarellae, Tomate, Harina",
+        "precio": 100,
+        "imagen": "img/pizza.jpg"
+    },
+
+    {"id":4,
+        "nombre": "HotCakes",
+        "descripcion": "Harina, Leche, Huevos, Mantequilla, Miel",
+        "precio": 49,
+        "imagen": "img/hotcakes.jpg"
+    },
+
+    {"id":5,
+        "nombre": "Torta",
+        "descripcion": "Queso, Jamon, Bolillo, Tomate, Lechuga",
+        "precio": 65,
+        "imagen": "img/torta.jpg"
+    },
+
+    {"id":6,
+        "nombre": "Hotdogs",
+        "descripcion": "Pan, Salchicha. Cebolla, Tomate, Mayonesa",
+        "precio": 60,
+        "imagen": "img/hotdogs.jpg"
+    },
+
+    {"id":7,
+        "nombre": "PapaAsada",
+        "descripcion": "Papas, Queso, Mantequilla, Sal, Carne",
+        "precio": 80,
+        "imagen": "img/papaasada.jpg"
+    },
+
+    {"id":8,
+        "nombre": "Sincronizada",
+        "descripcion": "Queso, Trompo, Jamon, Frijoles, Tortilla de Harina",
+        "precio": 105,
+        "imagen": "img/sincronizada.jpg"
+    }
+]
+}
