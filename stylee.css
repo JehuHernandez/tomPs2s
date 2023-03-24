@@ -1,0 +1,88 @@
+.collage{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: bisque;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+.imagen1{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    -2-index-1;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen2{
+    position:absolute;
+    top: 0;
+    left: 1;
+    width: 200px;
+    height: 200px;
+    -2-index-2;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen3{
+    position:absolute;
+    top: 0;
+    left: 2;
+    width: 200px;
+    height: 200px;
+    -2-index-3;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen4{
+    position:absolute;
+    top: 0;
+    left: 3;
+    width: 200px;
+    height: 200px;
+    -2-index-4;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen5{
+    position:absolute;
+    top: 0;
+    left: 4;
+    width: 200px;
+    height: 200px;
+    -2-index-5;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen6{
+    position:absolute;
+    top: 0;
+    left: 5;
+    width: 200px;
+    height: 200px;
+    -2-index-6;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen7{
+    position:absolute;
+    top: 0;
+    left: 6;
+    width: 200px;
+    height: 200px;
+    -2-index-7;
+    box-shadow: 2px
+    2px 2px black;
+}
+.imagen8{
+    position:absolute;
+    top: 0;
+    left: 7;
+    width: 200px;
+    height: 200px;
+    -2-index-8;
+    box-shadow: 2px
+    2px 2px black;
+}
