@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin="anonymous">
+    <title>Menu</title>
+</head>
+<body style="background-color: rgb(179, 179, 179);">
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-light" style="background-color: khaki;">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="indexx.html">inicio</a>
+                    </li>
+                    <li>
+                        <li class="active">
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li>
+                        <a href="pedido.html">Pedido</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <nav class="navbar navbar-light" style="background-color: khaki;"></nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-4">Fisica 1</h1>
+        <p class="lead">Ciencia que estudia las propiedades de la materia y de la energía y establece las leyes que explican los fenómenos naturales, excluyendo los que modifican la estructura molecular de los cuerpos.
+
+        </p>
+
+        <form id="formulario">
+          <label for="distancia">Distancia:</label>
+          <input type="text" id="distancia" name="distancia">
+          <select id="distanciaUnidad">
+            <option value="metros">metros</option>
+            <option value="pies">pies</option>
+
+            </select>
+            <br>
+
+            <label for="tiempo">Tiempo:</label>
+          <input type="text" id="tiempo" name="tiempo">
+          <select id="tiempoUnidad">
+            <option value="segundos">segundos</option>
+            <option value="horas">horas</option>
+            
+          </select>
+          <br>
+          <label for="velocidadUnidad">Unidad de Velocidad:</label>
+          <select id="velocidadUnidad">
+            <option value="metros_por_segundo">m/s</option>
+            <option value="pies_por_segundo">ft/s</option>
+            <option value="kilometros_por_hora">km/h</option>
+            <option value="millas_por_hora">mph</option>
+          </select>
+            <br>
+            <button type="button" value="Calcular" onclick="Calcular()" class="btn btn-success">Calcular</button>
+            
+            
+        </form>
+        <br>
+            <p id="resultado"></p>
+        <p style="color: rgb(1, 150, 150);">Velocidad: <span id="velocidad"></span></p>
+        <p style="color: rgba(131, 2, 2, 0.678);">Aceleracion: <span id="aceleracion"></span></p>
+        <p style="color: rgb(37, 82, 82);">Rapidez: <span id="rapidez"></span></p>
+        </div>
+    </div>
+    <script>
+
+        function Calcular(){
+
+            //obtener los valores del formulario
+        const distancia = parseFloat(document.getElementById
+        ('distancia').value);
+        const tiempo = parseFloat(document.getElementById
+        ('tiempo').value);
+        const distanciaUnidad = document.getElementById
+        ('distanciaUnidad').value;
+        const tiempoUnidad = document.getElementById
+        ('tiempoUnidad').value;
+        const velocidadUnidad = document.getElementById
+        ('velocidadUnidad').value;
+
+        //Convertir unidad a Sistema metrico(SI)
+        let distanciaSI = 0;
+        let tiempoSI = 0;
+        if(distanciaUnidad === 'metros'){
+            distanciaSI = distancia;
+        }
+        else if (distanciaUnidad === 'pies'){
+            distanciaSI = distancia /3.281;
+        }
+        if(tiempoUnidad === 'segundos'){
+            tiempoSI = tiempo;
+        }
+        else if(tiempoUnidad === 'horas'){
+            tiempoSI = tiempo * 3600;
+        }
+
+        //Calcular la velocidad, aceleracion y (rapidez)
+        let velocidad = 0;
+        let aceleracion = 0;
+        let rapidez = 0;
+        if(velocidadUnidad === 'metros_por_segundo'){
+            velocidad = distanciaSI / tiempoSI;
+            rapidez = velocidad; //esta no es la formula
+            aceleracion = velocidad / tiempoSI;
+        }
+        else if(velocidadUnidad === 'pies_por_segundo'){
+            velocidad = (distanciaSI * 3.281) / tiempoSI;
+            rapidez = velocidad; //esta no es la formula
+            aceleracion = velocidad / tiempoSI;
+        }
+        else if(velocidadUnidad === 'kilometros_por_hora'){
+            velocidad = (distanciaSI / 1000) / (tiempoSI / 3600);
+            rapidez = velocidad; //esta no es la formula
+            aceleracion = velocidad / tiempoSI;
+        }
+        else if(velocidadUnidad === 'millas_por_hora'){
+            velocidad = (distanciaSI / 1609) / (tiempoSI / 3600);
+            rapidez = velocidad; //esta no es la formula
+            aceleracion = velocidad / tiempoSI;
+        }
+        //mostrar los resultados
+        let resultado = '';
+        document.getElementById('velocidad').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+        document.getElementById('aceleracion').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+        document.getElementById('rapidez').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+ 
+        document.getElementById('resultado').innerHTML=resultado;
+
+        }
+        
+
+    </script>
+    <footer>
+        <h2>Contactame</h2>
+        <p>Si estas interesado en contactarme, puedes hacerlo desde las siguientes redes sociales: </p>
+        
+        <a href="http://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="http://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.twitter.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+    </footer>
+</body>
+</html>
