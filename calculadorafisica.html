@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Menu</title>
 </head>
 <body style="background-color: rgb(179, 179, 179);">
@@ -112,6 +112,7 @@
             tiempoSI = tiempo * 3600;
         }
 
+
         //Calcular la velocidad, aceleracion y (rapidez)
         let velocidad = 0;
         let aceleracion = 0;
@@ -136,11 +137,14 @@
             rapidez = velocidad; //esta no es la formula
             aceleracion = velocidad / tiempoSI;
         }
+
+
+
         //mostrar los resultados
         let resultado = '';
-        document.getElementById('velocidad').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
-        document.getElementById('aceleracion').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
-        document.getElementById('rapidez').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+        document.getElementById('velocidad').textContent = velocidad.toFixed(7) + ' ' + velocidadUnidad;
+        document.getElementById('aceleracion').textContent = aceleracion.toFixed(10) + ' ' + velocidadUnidad;
+        document.getElementById('rapidez').textContent = rapidez.toFixed(7) + ' ' + velocidadUnidad;
  
         document.getElementById('resultado').innerHTML=resultado;
 
@@ -149,12 +153,18 @@
 
     </script>
     <footer>
+
         <h2>Contactame</h2>
-        <p>Si estas interesado en contactarme, puedes hacerlo desde las siguientes redes sociales: </p>
-        
-        <a href="http://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="http://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="http://www.twitter.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+        <p>si estas interesado en contactarme,puedes hacerlo a atraves de cualquiera de las siguientes 
+            redes Sociales:</p>
+            <a href="http://www.facebook.com/miperfil" 
+            target="_blank"><i class="fab fa-facebook"></i>></a>
+            <a href="http://www.instagram.com/miperfil" 
+            target="_blank"><i class="fab fa-instagram"></i>></a>
+            <a href="http://www.twitter.com/miperfil" 
+            target="_blank"><i class="fab fa-twitter"></i>></a>
     </footer>
+
+
 </body>
 </html>
