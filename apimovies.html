@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Inicio</title>
+    <title>Movies API</title>
 </head>
 <body>
     <div style="margin: 24px;">
@@ -58,24 +58,144 @@
         const search = document.getElementById('search');
 
         //Esta linea llama a la funcion getMovies para obtener la lista de pelicualas de iniciales
-        getMovies(API_URL);
 
+        getMovies(API_URL);
         //Esta funcion utiliza fetch para obtener la informacion de la API y luego utiliza await para esperar a que la informacion sea procesada. Finalmente, llama a la funcion showMovies para mostrar la lista de peliculas en el DOM
+        async function getMovies(url){
+            const res= await fetch(url);
+            const data = await res.json();
+            showMovies(data.result);
+        }
+        //Esta funcion crea los elementos HTML para mostrar cada pelicula en la lista. Utiliza la informacion de la pelicula para crear los elementos y luego los agrega al DOM
         function showMovies(movies){
             main.innerHTML='';
             movies.forEach(movies) => {
                 const { title, poster_path, vote_average, overview, release_date} = movie;
                 const movieEl = document.createElement('div');
+
+                movieEl.classList.add('movie');
+                movieEl.innerHTML = `<img src="${IMG_PATH + poster_path}" alt = "${title}"
+                <div class = "movie-info">
+                    <h3>${title}
+                        <span class="${getClassByRate(vote_average)}">${vote_average}
+                        </div>
+                        <div class="overview">
+                            <h3> Overview </h3>
+                            ${Overview}
+                            <h3>Release Date</h3>
+                            ${release_date}`
+                main.appendChild(movieEl);
             }
         }
+        //Esta funcion devuelve la clase CSS correspondiene para el puntaje de la pelicula. La clase se utiliza para mostrar un color diferente segun el punteje
+
+
     </script>
 
     <div id="footer"></div>
    <script>
     $(function(){
-        $("#footer").load("/ñl/footer.html");
+        $("#footer").load("/sd/footer.html");
     });
    </script>
+
+
+  <style>
+    footer{
+    background-color: khaki;
+    padding: 40px;
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-section{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.about{
+    text-align: center;
+}
+.about h2{
+    margin-bottom: 20px;
+}
+.about p{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.about h1{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: white;
+}
+.contact-links{
+    display: flex;
+    justify-content: center;
+}
+.contact-links a{
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+.contact-links a:hover{
+    transform: translateY(-7px);
+}
+  </style>
+
+
+<footer>
+
+    <div class="container">
+        <div class="footer-content">
+            <div class="fotter-section about">
+
+
+    <h2>Contactame</h2>
+    <p>si estas interesado en contactarme,puedes hacerlo a atraves de cualquiera de las siguientes 
+        redes Sociales:</p>
+        <div class="contact-links">
+        <a href="http://www.facebook.com/miperfil" 
+        target="_blank"><i class="fab fa-facebook"></i>></a>
+        <a href="http://www.instagram.com/miperfil" 
+        target="_blank"><i class="fab fa-instagram"></i>></a>
+        <a href="http://www.twitter.com/miperfil" 
+        target="_blank"><i class="fab fa-twitter"></i>></a>
+        <a href="http://www.discord.com/miperfil" 
+        target="_blank"><i class="fab fa-discord"></i>></a>
+        <a href="http://www.pinterest.com/miperfil" 
+        target="_blank"><i class="fab fa-pinterest"></i>></a>
+        <a href="http://www.linkedin.com/miperfil" 
+        target="_blank"><i class="fab fa-linkedin"></i>></a>
+        </div>
+        </div>
+       </div>
+     </div>
+           
+
+
+<script>
+    //este siguiente codigo es para que los enlaces se abran en una nueva pestaña
+    const redessociales = document.querySelectorAll('.contact-links');
+    redessociales.forEach(link =>{
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            window.open(link.href, '_blank');
+        });
+    });
+
+</script>
+
+</footer>
         
     </body>
     </html>
