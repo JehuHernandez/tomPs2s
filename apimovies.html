@@ -63,7 +63,7 @@
             margin-bottom: 50px;
         }
         input[type="text"]{
-            font-size: 1.2ren;
+            font-size: 1.2rem;
             padding: 10px;
             border-radius: 5px;
             border: none;
@@ -71,7 +71,7 @@
             cursor: pointer;
         }
         input[type="submit"]{
-            font-size: 1.2ren;
+            font-size: 1.2rem;
             padding: 10px 20px;
             border-radius: 5px;
             border: none;
@@ -84,7 +84,7 @@
         }
         .movies{
             display: grid;
-            grid-template-columns: repeat(auto-fit,(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             grid-gap:20px;
         }
         .movie{
@@ -108,7 +108,7 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s ease;
             text-align: center;
         }
         .movie:hover .movie-info{
@@ -153,25 +153,25 @@
         async function getMovies(url){
             const res= await fetch(url);
             const data = await res.json();
-            showMovies(data.result);
+            showMovies(data.results);
         }
         //Esta funcion crea los elementos HTML para mostrar cada pelicula en la lista. Utiliza la informacion de la pelicula para crear los elementos y luego los agrega al DOM
         function showMovies(movies){
             main.innerHTML='';
-            movies.forEach((movies) => {
+            movies.forEach((movie) => {
                 const { title, poster_path, vote_average, overview, release_date} = movie;
                 const movieEl = document.createElement('div');
 
                 movieEl.classList.add('movie');
                 movieEl.innerHTML = `
-                <img src="${IMG_PATH + poster_path}" alt="${title}"
+                <img src="${IMG_PATH + poster_path}" alt="${title}">
                 <div class = "movie-info">
                     <h3>${title}</h3>
                         <span class="${getClassByRate(vote_average)}">${vote_average}</span>
                 </div>
                 <div class="overview">
                     <h3> Overview </h3>
-                            ${Overview}
+                            ${overview}
                             <h3>Release Date</h3>
                             ${release_date}</div>`;
                 main.appendChild(movieEl);
@@ -183,7 +183,7 @@
             if(vote>=8){
              return 'green';
              }
-            else if(vore>=5){
+            else if(vote>=5){
                 return 'orange';
             }else{
                 return 'red';
