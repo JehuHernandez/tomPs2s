@@ -46,26 +46,26 @@
         <div class="quiz-container" id="quiz">
             <div class="quiz-header">
                 <div class="image-container">
-                    <img src="quiz1.jpg" alt="Imagen" id="question-image" style="width: 250px; height: auto;">
+                    <img src="imagen.jpg" alt="Imagen" id="question-image" style="width: 250px; height: auto; border-radius: 10px; align-items: center; display: block; margin-left: auto; margin-right: auto;">
                     
                 </div>
-                <h2 id="question">Quien ganaria contra este prietote?</h2>
+                <h2 id="question">Question text</h2>
                 <ul>
                     <li>
                         <input type="radio" name="answer" id="a" class="answer">
-                        <label for="a" id="a_texto">Superman</label>
+                        <label for="a" id="a_text">Question</label>
                     </li>
                     <li>
                         <input type="radio" name="answer" id="b" class="answer">
-                        <label for="b" id="b_texto">Goku</label>
+                        <label for="b" id="b_text">Question</label>
                     </li>
                     <li>
                         <input type="radio" name="answer" id="c" class="answer">
-                        <label for="c" id="c_texto">Batman</label>
+                        <label for="c" id="c_text">Question</label>
                     </li>
                     <li>
                         <input type="radio" name="answer" id="d" class="answer">
-                        <label for="d" id="d_texto">Dios</label>
+                        <label for="d" id="d_text">Question</label>
                     </li>
                 </ul>
             </div>
@@ -73,6 +73,61 @@
         </div>
 
     </div>
+
+    <style>
+        body{
+            align-items: center;
+            justify-content: center;
+            overflow: 0;
+            margin: 0;
+        }
+        .quiz-container{
+            background-color: rgb(74, 96, 107);
+            background-image: linear-gradient(315deg, rgb(34, 103, 138) 0%, rgb(172, 67, 53) 100%);
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px 5px rgb(80, 22, 14);
+            width: 750px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .quiz-header{
+            padding: 15px;
+        }
+        h2{
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        ul li{
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        ul li label{
+            cursor: pointer;
+        }
+        button{
+            background-color: rgb(41, 90, 74);
+            color: black;
+            border: none;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 15px;
+        }
+        button:hover{
+            background-color: rgb(46, 165, 66);
+        }
+        button:focus{
+            outline: none;
+            background-color: rgb(105, 128, 108);
+        }
+    </style>
 
     <script>
         const quizData = [
@@ -85,9 +140,45 @@
                 d: "Dios",
                 correct: "c",
             },
+            {
+                question: "Cuanto es 10 + 10?",
+                image: "quiz1.jpg",
+                a: "Superman",
+                b: "Goku",
+                c: "Batman",
+                d: "Dios",
+                correct: "c",
+            },
+            {
+                question: "Quien ganaria una pelea contra el prietote?",
+                image: "quiz1.jpg",
+                a: "Superman",
+                b: "Goku",
+                c: "Batman",
+                d: "Dios",
+                correct: "c",
+            },
+            {
+                question: "Quien ganaria una pelea contra el prietote?",
+                image: "quiz1.jpg",
+                a: "Superman",
+                b: "Goku",
+                c: "Batman",
+                d: "Dios",
+                correct: "c",
+            },
+            {
+                question: "Quien ganaria una pelea contra el prietote?",
+                image: "quiz1.jpg",
+                a: "Superman",
+                b: "Goku",
+                c: "Batman",
+                d: "Dios",
+                correct: "c",
+            },
         ];
         const quiz = document.getElementById('quiz');
-        const anwerEls = document.querySelectorAll('.answer');
+        const answerEls = document.querySelectorAll('.answer');
         const questionEl = document.getElementById('question');
         const submitBtn = document.getElementById('submit');
         //dependiendo del numero de respuestas esto puede incrementar
@@ -101,8 +192,8 @@
         loadQuiz(); // va a cargar la primera pregunta del cuestionario
 
         function loadQuiz(){
-            deselectAnswer();
-            const currentQuizData = quizData[currentQuizData]; //obtiene los datos de la pregunta actual
+            deselectAnswers();
+            const currentQuizData = quizData[currentQuiz]; //obtiene los datos de la pregunta actual
             quiestionEl.innerText = currentQuizData.question; //muestra la pregunta actual en el elemento html correspondiente
             a_text.innerText = currentQuizData.a; //muestra la opcion de la respuesta A en el elemento html correspondiente
             b_text.innerText = currentQuizData.b; //muestra la opcion de la respuesta B en el elemento html correspondiente
@@ -111,7 +202,7 @@
             const questionImage = document.getElementById('question-image');
             questionImage.src = currentQuizData.image;
         }
-        function deselectAnswer(){
+        function deselectAnswers(){
             answerEls.forEach(answerEl => answerEl.checked = false); //desenmarca todas las casillas de verificacion de respuesta.
         }
         function getSelectAnswer(){
